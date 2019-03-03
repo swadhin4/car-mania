@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="carApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Sidebar template</title>
+	<link rel="stylesheet" type="text/css"	href="components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" 	src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+      <link href="css/app.css" rel="stylesheet">
+      
+      <style>
+img{
+  margin:auto;
+  width: 100%
+}
+#slides_control {
+  width: 100%;
+  height:80%
+}
+
+.imgsrc{
+	background: 
+}
+      </style>
+</head>
+
+<body>
+<div class="page-wrapper chiller-theme toggled" ng-controller="carController">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#">CAR MANIA</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">Swadhin
+            <strong>Mohanta</strong>
+          </span>
+          <span class="user-role">Administrator</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+              <span class="badge badge-pill badge-warning">New</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li ng-repeat="car in carList">
+                  <a href="#" ng-click="getCarImages(car)">{{car.carName}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#">
+        <i class="fa fa-bell"></i>
+        <span class="badge badge-pill badge-warning notification">3</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-envelope"></i>
+        <span class="badge badge-pill badge-success notification">7</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+   <div class="row">
+    <div id="sticker" >
+        <div class="row">
+            <nav class="navbar ">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+							
+              </div>
+              <div class=" main-menu bs-example-navbar-collapse-1" id="navbar-example">
+              <div class="col-md-3"> 
+              </div>		
+             	<div class="col-md-8"> 		
+            	<div class="input-group input-group-sm" >
+					<input type="text" name="table_search" style=" height: 45px;"
+						class="form-control pull-right" ng-model="searchitem"
+						placeholder="Search Car">
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-warning" style="    height: 45px;">
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</div>
+	             </div>
+              </div>
+            </nav>
+      </div>
+    </div>
+  </div>
+  <main class="page-content" style="margin-top: -66px;">
+      <div class="row">
+		<div id="slides_control">
+	      <carousel interval="myInterval">
+	        <slide ng-repeat="img in selecteCarImageList" active="img.active" >
+	         	 <img ng-src="{{img.image}}"> 
+	          <div class="carousel-caption">
+	            <h4>Slide {{$index+1}}</h4>
+	          </div>
+	        </slide>
+	      </carousel>
+        </div>
+	</div>
+      <div class="row">
+       	<div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+               <section class="post-heading">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <div class="media">
+                              <div class="media-left">
+                                <a href="#">
+                                  <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
+                                </a>
+                              </div>
+                              <div class="media-body">
+                                <a href="#" class="anchor-username"><h4 class="media-heading">Bayu Darmantra</h4></a> 
+                                <a href="#" class="anchor-time">51 mins</a>
+                              </div>
+                            </div>
+                        </div>
+                         <div class="col-md-1">
+                             <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                         </div>
+                    </div>             
+               </section>
+               <section class="post-body">
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras 
+                   turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
+                   erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
+                   licitudin venenatis. Praesent et sem urna. Integer vitae lectus nis
+                   l. Fusce sapien ante, tristique efficitur lorem et, laoreet ornare lib
+                   ero. Nam fringilla leo orci. Vivamus semper quam nunc, sed ornare magna dignissim sed. Etiam interdum justo quis risus
+                   efficitur dictum. Nunc ut pulvinar quam. N
+                   unc mollis, est a dapibus dignissim, eros elit tempor diam, eu tempus quam felis eu velit.</p>
+               </section>
+               <section class="post-footer">
+                   <hr>
+                   <div class="post-footer-option container">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-share-alt"></i> Share</a></li>
+                        </ul>
+                   </div>
+                   <div class="post-footer-comment-wrapper">
+                       <div class="comment-form">
+                           
+                       </div>
+                       <div class="comment">
+                            <div class="media">
+                              <div class="media-left">
+                                <a href="#">
+                                  <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
+                                </a>
+                              </div>
+                              <div class="media-body">
+                                <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
+                                <a href="#" class="anchor-time">51 mins</a>
+                              </div>
+                            </div>
+                       </div>
+                   </div>
+               </section>
+            </div>
+        </div>   
+	</div>
+      </div>
+    </div>
+     
+  </main>
+</div>
+<!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+      <script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls-0.10.0.js" ></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers/base-controller.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	
+</body>
+
+</html>
