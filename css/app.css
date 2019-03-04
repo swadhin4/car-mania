@@ -1,45 +1,6 @@
-@keyframes swing {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(10deg);
-  }
-  30% {
-    transform: rotate(0deg);
-  }
-  40% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  60% {
-    transform: rotate(5deg);
-  }
-  70% {
-    transform: rotate(0deg);
-  }
-  80% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
 
-@keyframes sonar {
-  0% {
-    transform: scale(0.9);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
 body {
-  font-size: 0.9rem;
+/*   font-size: 0.9rem; */
 }
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-brand > a,
@@ -91,7 +52,7 @@ body {
 /*----------------show sidebar button----------------*/
 #show-sidebar {
 	    z-index: 1040;
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   top: 10px;
   border-radius: 0 4px 4px 0px;
@@ -100,18 +61,14 @@ body {
   background-color: black;
 }
 .page-wrapper.toggled #show-sidebar {
-  left: -40px;
+  left: 0px;
 }
 /*----------------sidebar-wrapper----------------*/
 
 .sidebar-wrapper {
-  width: 260px;
-  height: 100%;
-  max-height: 100%;
-  position: fixed;
+  height: 750px;
   top: 0;
-  left: -300px;
-  z-index: 999;
+  z-index: 0;
 }
 
 .sidebar-wrapper ul {
@@ -584,3 +541,61 @@ body {
 .post-footer-comment-wrapper{
     background-color:#F6F7F8;
 }
+  .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    }
+    
+    #sidebar2 {
+  background-color:#eee;
+  height:100%;
+  position:fixed;
+  right:0;
+}
+
+#sidebar1{
+	 background-color:#eee;
+  height:100%;
+  position:fixed;
+  left:0;
+	
+}
+    

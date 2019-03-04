@@ -48,12 +48,26 @@ carApp.controller('carController',['$scope','$rootScope','filterFilter',
 		            	}
 		            ]
 		
-		
 		$scope.getCarImages=function(selectedCar){
 			$scope.selecteCarImageList=[];
 			$.each(selectedCar.images,function(key,val){
 				$scope.selecteCarImageList.push(val);
 			});
 			console.log($scope.selecteCarImageList);
+		}
+		
+		$scope.getSearchedCar=function(searchedCar){
+			var carFound=false;
+			var selectedCar = {};
+			$.each($scope.carList,function(key,val){
+				if(searchedCar.toLowerCase()==val.carName.toLowerCase()){
+					carFound=true;
+					selectedCar = val;
+					return false;
+				}
+			});
+			if(carFound){
+				$scope.getCarImages(selectedCar)
+			}
 		}
  }]);
